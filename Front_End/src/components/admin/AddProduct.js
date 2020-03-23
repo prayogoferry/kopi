@@ -102,7 +102,7 @@ class ProductsEditDetails extends Component {
                     item, price, img, startDate, endDate, startTime, endTime, desc, days
                 }).then((res) => {
                     console.log(res);
-                    document.getElementById('message').innerHTML = '<strong>Add product success!</strong>';
+                    document.getElementById('message').innerHTML = '<strong>Add product success</strong>';
                     //=======> Activity Log
                     this.props.onActivityLog({username: this.props.username, role: this.props.myRole, desc: 'Add product: '+item});
                     this.refs.formAdd.reset();

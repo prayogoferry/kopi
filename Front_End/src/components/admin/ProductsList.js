@@ -20,7 +20,8 @@ class ProductsList extends Component {
                 uploading: false,
                 images: [],
                 activePage: 1,
-                itemPerPage: 5
+                itemPerPage: 5,
+                listCategory:[]
                 
             }
 
@@ -45,6 +46,18 @@ class ProductsList extends Component {
             }).catch((err) => {
                 console.log(err);
             })
+
+            axios.get('http://localhost:2002/categories/getcategories')
+            .then((res2) => {
+                console.log(res2);
+                this.setState({ 
+                    listCategory: res2.data,
+                   
+                });
+            }).catch((err) => {
+                console.log(err);
+            })
+
     }
 
     onBtnAddClick = () => {
@@ -60,7 +73,9 @@ class ProductsList extends Component {
                 nama: this.refs.addname.value,
                 harga: this.refs.addprice.value,
                 deskripsi: this.refs.adddescription.value,
-                // stock: 54,
+                id_cat: this.refs.addcategories.value,
+                stok: this.refs.addstok.value
+                
             }
 
             if(document.getElementById('AddBrandImage')){
@@ -102,6 +117,8 @@ class ProductsList extends Component {
             nama: this.refs.updatenama.value,
             harga: this.refs.updateharga.value,
             deskripsi: this.refs.updatedeskripsi.value,
+            id_cat: this.refs.editcategory.value,
+            stok: this.refs.editstok.value
         }
 
         if(document.getElementById('EditBrandImage')){
@@ -141,8 +158,9 @@ class ProductsList extends Component {
         }
     }
 
+    // formtambahdata start
     adminAddAction = () => {
-        if(this.props.myRole === 'SUPERADMIN' || this.props.myRole === 'EDITOR') {
+        if(this.props.myRole === 'SUPERADMIN') {
             return(
                 <tfoot>
                     <tr>
@@ -158,12 +176,24 @@ class ProductsList extends Component {
                             className="form-control" />
                         </td>
                         <td>
+                            <input type="number" size="8" placeholder="stok" 
+                            ref="addstok" style={{ fontSize: "13px" }} 
+                            className="form-control" />
+                        </td>
+                        <td>
                             <CustomInput type="file" id="AddBrandImage" name="AddBrandImage" label={this.state.EditBrandImage} onChange={this.onAddFileImageChange} />
                         </td>
                         <td style={{textAlign: 'center'}}>
                             <input type="text" size="4" placeholder="description" 
                             ref="adddescription" style={{ fontSize: "13px" }} 
                             className="form-control" />
+                        </td>
+                        <td>
+                            <select ref='addcategory' className='form-control mt-2'>
+                                <option value ='' hidden>Category</option>
+                                {this.renderCategories()}
+                            </select>
+                      
                         </td>
                         <td colspan="2"><center><button className="btn btn-success" style={{ fontSize: "12px" }}
                             onClick={() => this.onBtnAddClick()}><i className="fa fa-plus-circle" style={{fontSize: '14px'}}></i> Add Product</button></center></td>
@@ -172,6 +202,12 @@ class ProductsList extends Component {
                 </tfoot>
             )
         }
+    }
+
+    renderCategories=()=>{
+        return this.state.listCategory.map((val,index)=>{
+        return <option key={index} ref="addcategories" style ={{fontSize:'15'}} value={val.id}> {val.jenis}</option>
+        })
     }
 
     onBtnSearchClick = () => {
@@ -184,7 +220,9 @@ class ProductsList extends Component {
         this.setState({ searchListProducts: arrSearch })
     }
   
-    renderListCategory = () => {
+
+    //menampilkan produk
+    renderProduk = () => {
         var indexOfLastTodo = this.state.activePage * this.state.itemPerPage;
         var indexOfFirstTodo = indexOfLastTodo - this.state.itemPerPage;
         var renderedProjects = this.state.searchListProducts.slice(indexOfFirstTodo, indexOfLastTodo);
@@ -196,10 +234,16 @@ class ProductsList extends Component {
                     {/* <td className="text-center" style={{ fontSize: '14px', }}>{item.id}</td> */}
                     <td style={{ fontSize: '14px', }}><input type="text" defaultValue={item.nama} size="4" style={{ fontSize: "13px" }} ref="updatenama"className="form-control"></input></td>
                     <td style={{ fontSize: '14px', }}><input type="number" defaultValue={item.harga} size="4" style={{ fontSize: "13px" }} ref="updateharga"className="form-control"></input></td>
+                    <td style={{ fontSize: '14px', }}><input type="number" defaultValue={item.stok} size="4" style={{ fontSize: "13px" }} ref="editstok"className="form-control"></input></td>
                     <td style={{ fontSize: '14px', }}>
                         <CustomInput type="file" id="EditBrandImage" name="EditBrandImage" label={this.state.EditBrandImage} onChange={this.onEditFileImageChange} />
                     </td>
                     <td style={{ fontSize: '14px', }}><input type="text" defaultValue={item.deskripsi} size="4" style={{ fontSize: "13px" }} ref="updatedeskripsi"className="form-control"></input></td>
+                    <td> <select ref='editcategory' className='form-control mt-2' defaultValue={item.idcat}>
+                                <option value ='' hidden>Category</option>
+                                {this.renderCategories()}
+                            </select>
+                            </td>
                     <td className="text-center" style={{ fontSize: '14px', }}>
                         <button className="btn btn-success" title="save" style={{borderRadius: '30px', height: '30px', width: '30px'}}
                             onClick={() => this.onBtnSaveClick(item.id)}>
@@ -215,14 +259,16 @@ class ProductsList extends Component {
             )
         }
 
-        if(this.props.myRole === "SUPERADMIN" || this.props.myRole === 'EDITOR') {
+        if(this.props.myRole === "SUPERADMIN") {
             return (
                 <tr>
                     {/* <td style={{ fontSize: '14px', }}>{item.id}</td> */}
                     <td style={{ fontSize: '14px', }}>{item.nama}</td>
                     <td style={{ fontSize: '14px', }}>{myCurrency.format(item.harga)}</td>
+                    <td style={{ fontSize: '14px', }}>{item.stok}</td>
                     <td><img src={`http://localhost:2002${item.image}`} alt={item.image} width={100} /></td>
                     <td style={{ fontSize: '14px', }}>{item.deskripsi}</td>
+                    <td style={{ fontSize: '14px', }}>{item.jenis}</td>
                     <td className="text-center" style={{ fontSize: '14px', }}>
                         <button className="btn btn-info" title="edit" style={{borderRadius: '30px', height: '30px', width: '30px'}}
                             onClick={ () => this.setState({ selectedIdEdit: item.id }) }>
@@ -244,10 +290,12 @@ class ProductsList extends Component {
         
         return listJSXCategory;
     }
+
+
         
     render() {
         
-        if(this.props.username !== "" && (this.props.myRole === "SUPERADMIN" || this.props.myRole === 'EDITOR')) {
+        if(this.props.username !== "" && (this.props.myRole === "SUPERADMIN")) {
             
             return(
                 <div style={{ fontSize: "13px" }}>
@@ -265,13 +313,16 @@ class ProductsList extends Component {
                                     {/* <th scope="col" className="font-weight-bold text-center" style={{ fontSize: '14px', }}>ID</th> */}
                                     <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }}>Product Name</th>
                                     <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }}>Price</th>
+                                    <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }}>Stok</th>
                                     <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }}>Image</th>
                                     <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }}>Description</th>
+                                    <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }}>Category</th>
                                     <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '14px', }} colSpan="">Options</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.renderListCategory()}
+                                {this.renderProduk()}
                             </tbody>
                                 {this.adminAddAction()}
                         </table>

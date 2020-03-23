@@ -15,15 +15,27 @@ module.exports = {
     },
     // to get select options
     getProduct: (req, res) => {
-        var sql = `select * from products`;
+        var sql = `select p.id as id, 
+        p.nama as nama, 
+        p.deskripsi as deskripsi, 
+        p.image as image, 
+        p.harga as harga,
+        p.stok as stok, 
+        c.id as idcat, 
+        c.jenis as jenis 
+        
+        from products p 
+        
+        join categories c 
+        on p.id_cat = c.id `;
         db.query(sql, (err, result) => {
             if (err) throw err;
             res.send(result);
         })
     },
     // tampilkan list product sebelum di join
-    listProducts: (req, res) => {
-        var sql = `select * from products`;
+    getCategories: (req, res) => {
+        var sql = `select * from categories`;
         db.query(sql, (err, result) => {
             if (err) throw err;
             res.send(result);

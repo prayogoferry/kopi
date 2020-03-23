@@ -23,7 +23,7 @@ class HomePage extends Component {
       
       return (
         <div>
-          <div style={{marginTop: '-50px', marginBottom:'50px'}}>
+          <div style={{marginTop: '-50px', marginBottom:'25px'}}>
             {/* <Carousels/> */}
             <Carousel>
                     <Carousel.Item>

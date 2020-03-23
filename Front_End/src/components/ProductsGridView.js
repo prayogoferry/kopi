@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ProductsItems from './ProductsItems';
-import cardMenu from './cardmenu'
+import cardMenu from './cardmenu';
+import {Carousel} from 'react-bootstrap'
 import Pagination from 'react-js-pagination';
 
 class ProductsGridView extends Component {
@@ -91,29 +92,22 @@ class ProductsGridView extends Component {
             
             return (
                 <div>
-                    <div class="container">
-                    <div class="grid">
-                        <div class="col-md-12 py-5" style={{height: "55px"}}>
-                        <div class="mb-5 flex-center">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="fb-ic">
-                            <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="tw-ic">
-                            <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="ins-ic">
-                            <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="pin-ic">
-                            <i class="fa fa-github fa-lg white-text mr-md-5 mr-3 fa-3x"></i>
-                            </a>
-                        </div>
-                            </div>
-                        </div>
+
+                    <div className="height=100px" style={{position:'', marginTop:'-25px'}}>
+                    
+                    <img src="https://cdn.pixabay.com/photo/2017/08/30/18/27/coffee-2698122_960_720.jpg" width='100%' height='400px'  alt="ini background"/>
+                    <center>
+                        <text style={{fontSize:'60px',fontWeight:'bold'}}> Jelajah! Kopimu </text>
+                    </center>
                     </div>
 
+                    <div className='flex' style={{height:'100px', backgroundColor:'black'}}>
+                        <div>nana</div>
+                        <div>nanana</div>
+
+                    </div>
                         
-                    <div className="input-group mb-1 col-md-2 mx-auto" style={{marginTop:'50px'}}>
+                    <div className="input-group mb-1 col-md-2 mx-auto" style={{marginTop:'10px'}}>
                         <input type="text" ref="produk" className="form-control" style={{height:'20px',fontSize:'25'}} 
                         placeholder="JELAJAHI" aria-label="products" aria-describedby="basic-addon1" style={{fontSize: '15px'}} onKeyUp={this.onBtnSearchClick}/>
                         <div class="input-group-prepend">

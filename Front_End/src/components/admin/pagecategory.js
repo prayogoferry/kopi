@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import HomeDashbord from './HomeDashbord';
+// import categorymanage from './HomeDashbord';
+import categorymanage from './categorymanage';
 
-class Dashbord extends Component {
+class pageCategory extends Component {
 
     render() {
     
@@ -12,7 +13,7 @@ class Dashbord extends Component {
           return (
                 <div className="" style={{ padding: "20px", fontSize: "13px"}}>
                     <div className="row">
-                        {/* <div className="col-lg-2" style={{ marginBottom: "20px" }}>
+                        <div className="col-lg-2" style={{ marginBottom: "20px" }}>
                             <div className="list-group">
                                 <a href="/admin/dashbord" className="list-group-item active">Dashbord</a>
                                 <a href="/admin/confirmtransaction" className="list-group-item">Transaction Confirmation</a>
@@ -20,13 +21,13 @@ class Dashbord extends Component {
                                 <a href="/admin/manageusers" className="list-group-item">Manage Users</a>
                                 <a href="/admin/managetrx" className="list-group-item">Manage Transsction</a>
                                 <a href="/admin/confirmtransaction" className="list-group-item">See Wishlist</a>
-                                <a href="/admin/managecategory" className="list-group-item">Manage Category</a>
+                                <a href="/admin/categorymanage" className="list-group-item">Manage Category</a>
                             </div>
-                        </div> */}
-                        <div className="col-lg-10 card bg-light border" style={{height: '600px', width:'1000px'}}>
+                        </div>
+                        <div className="col-lg-10 card bg-light border" style={{height: '600px'}}>
                             <h1 className="text-center pt-5 text-uppercase pb-5">Dashbord</h1>
                         <div>
-                        <HomeDashbord/>
+                        <categorymanage/>
                         </div>
                         </div>
                     </div>
@@ -43,4 +44,4 @@ const mapStateToProps = (state) => {
   return { username: state.auth.username, myRole: state.auth.role }
 }
 
-export default connect(mapStateToProps)(Dashbord);
+export default connect(mapStateToProps)(pageCategory);

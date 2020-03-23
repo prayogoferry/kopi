@@ -7,7 +7,7 @@ class Footer extends Component {
              <footer class="page-footer font-small unique-color-dark">
                     <div class="container">
                     <div class="grid">
-                        <div class="col-md-12 py-5" style={{height: "55px"}}>
+                        <div class="col-md-12 py-5" style={{height: "100px"}}>
                         <div class="mb-5 flex-center">
                             <a href="#" target="_blank" rel="noopener noreferrer" class="fb-ic">
                             <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
@@ -22,11 +22,14 @@ class Footer extends Component {
                             <i class="fa fa-github fa-lg white-text mr-md-5 mr-3 fa-3x"></i>
                             </a>
                         </div>
+                       
+                       
+                       
                             </div>
                         </div>
                     </div>
-                    <div class="footer-copyright text-center py-3" style={{marginBottom: "-24px", fontSize: '12px'}}>© 2019 Copyright:
-                    <a href="https://mdbootstrap.com/education/bootstrap/">  JELAJAH KOPI</a>
+                    <div class="footer-copyright text-center py-3" style={{paddingBottom:"-30px",height:'px', fontSize: '15px' }}>© 2019 Copyright:
+                    <a href="https://mdbootstrap.com/education/bootstrap/">  JELAJAHi KOPI</a>
                 </div>
               </footer>
             </div>

@@ -45,7 +45,7 @@ class ProductsItems extends Component {
                         <span className="text-bold" style={{fontSize: '14px'}}>{rupiah.format(harga)}</span>
                         <br/>
                         <span className="" >
-                            <button className="btn btn-info" title="Add To Cart" onClick={this.onItemClick} style={{borderRadius: '40px', height: '40px', width: '40px'}}><i className="fa fa-shopping-cart fa-lg fa-2x" /></button>
+                            <button className="btn btn-dark" title="Add To Cart" onClick={this.onItemClick} style={{borderRadius: '40px', height: '40px', width: '40px'}}><i className="fa fa-shopping-cart fa-lg fa-2x" /></button>
                         </span>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ var { uploader } = require('../helpers/uploader');
 module.exports = {
     cart: (req, res) => {
         var user = req.query.username;
-        var sql = `select u.username as Username, p.id as idproduct, p.nama as Nama_product, kuantiti, harga, total_harga as Total, image,
+        var sql = `select u.username as Username, p.id as idproduct, p.nama as Nama_product, p.stok as stok, kuantiti, harga, total_harga as Total, image,
                     c.id as id from cart c
                     join user u 
                     on c.user_id = u.id
@@ -59,6 +59,17 @@ module.exports = {
                 })
             }
         })
+    },
+
+    minstock: (req, res) => {
+        var {id, stok, qty}=req.body;
+        var hasil = stok-qty
+        var sql=`update products set stok =${hasil} where id=${id}`
+        db.query(sql, (err, results) => {
+            if (err) throw err;
+            res.send(results)
+        })
+
     },
 
     protectCart: (req, res) => {

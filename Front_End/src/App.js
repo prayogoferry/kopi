@@ -16,7 +16,7 @@ import _History from './components/History';
 import ManageUsers from './components/admin/ManageUsers';
 import ManageProducts from './components/admin/ManageProducts';
 import ManageTrx from './components/admin/ManageTrx';
-import ManageCategory from './components/admin/ManageCategory';
+import categorymanage from './components/admin/categorymanage';
 import Spinner from './components/Spinner';
 import AddProduct from './components/admin/AddProduct';
 import WishListCart from './components/WishList';
@@ -68,7 +68,7 @@ class App extends Component {
         <Route path="/admin/manageusers" component={ManageUsers}/>
         <Route path="/admin/manageproducts" component={ManageProducts}/>
         <Route path="/admin/managetrx" component={ManageTrx}/>
-        <Route path="/admin/managecategory" component={ManageCategory}/>
+        <Route path="/admin/managecategory" component={categorymanage}/>
         <Route path="/admin/addproduct" component={AddProduct} />
         <Route path="/admin/confirmtransaction" component={ConfirmTrx}/>
         <Route path="/admin/productslist" component={ListProducts}/>

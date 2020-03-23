@@ -22,7 +22,7 @@ class HistoryList extends Component {
     }
 
     componentDidMount() {
-        if(this.props.myRole === "SUPERADMIN" || this.props.myRole === 'ADMIN PAYMENT') {
+        if(this.props.myRole === "SUPERADMIN") {
             this.showOrdersAdmin();
         } else {
             this.showOrders();

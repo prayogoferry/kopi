@@ -8,18 +8,14 @@ class HomeCard extends Component {
             <div className="row" >
                 
                 <div className="col col-md-6 " style={{height: '400px'}}>
-                    <Fade left>
+                    <Fade bottom>
                     <img src='https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' width='100%' height='100%'/>
                     </Fade>
                     
                 </div>
                 <div className="col col-md-6 bg-light border">
                     
-                    <Fade>
-
-
-                    </Fade>
-
+                    <Fade right>
                     <h1 className="text-center text-uppercase bold" style={{paddingTop: '100px'}}>KOPI </h1>
                     <h5 className="text-center" style={{fontSize: '18px', fontFamily: 'calibri', paddingLeft: '30px', paddingRight: '30px', paddingTop: '10px'}}>nananananananananananananananananananananananananananananananananan</h5>
                     <center style={{paddingTop: '10px'}}>
@@ -27,6 +23,9 @@ class HomeCard extends Component {
                     <button type="button" className="btn btn-dark btn-lg" style={{width: '150px', paddingTop: '10px'}}>JELAJAHi</button>
                     </a>
                     </center>
+                    </Fade>
+
+                    
                 </div>
             </div>
 

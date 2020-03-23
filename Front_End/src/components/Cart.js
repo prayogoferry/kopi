@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {Cartpoint} from '../actions'
 import Pagination from 'react-js-pagination';
 
 const myCurrency = new Intl.NumberFormat('in-Rp', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
-class ConcessionListView extends Component {
+class cart extends Component {
 
     state = {
         listCart: [],
@@ -35,6 +36,8 @@ class ConcessionListView extends Component {
                         listCart: res.data,
                         selectedIdEdit: 0 
                     });
+                    this.props.Cartpoint(this.state.listCart.length)
+                    console.log(this.props.Cartpoint(this.state.listCart.length))
                 }).catch((err) => {
                     console.log(err);
                 })
@@ -243,8 +246,9 @@ const mapStateToProps = (state) => {
     return { 
         username: state.auth.username, 
         myRole: state.auth.role,
-        status: state.auth.status
+        status: state.auth.status,
+        cart : state.cart.cartpoint
     }
 }
 
-export default connect(mapStateToProps)(ConcessionListView);
+export default connect(mapStateToProps, {Cartpoint})(cart);

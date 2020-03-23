@@ -6,6 +6,7 @@ router.get('/cart', cartController.cart);
 router.get('/cartproduct', cartController.cartProduct)
 router.post('/cartplus', cartController.cartplus);
 router.put('/editcart/:id', cartController.editcart);
+router.put(`/minstok`), cartController.minstock;
 router.put('/protectcart/:id', cartController.protectCart)
 router.delete('/deletecart/:id', cartController.deleteCart);
 router.post('/listorder', cartController.daftarOrder);

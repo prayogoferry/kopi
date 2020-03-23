@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { onUserLogout } from '../actions';
 import Cookies from 'universal-cookie';
 import { MDBBtn } from "mdbreact";
+import {Badge} from '@material-ui/core'
 
 const cookies = new Cookies();
 
@@ -87,7 +88,10 @@ class HeaderReact extends Component {
                     </Navbar>
                     <div style={{height: '40px', marginRight: '-15px', marginLeft: '-15px', marginTop: '60px', backgroundColor: 'silver', fontSize: '16px', lineHeight: '2em' }} className="text-center fixed-top font-weight-normal">
                         <div style={{marginTop: '3px'}}>
+                            
+                            <Badge badgeContent={this.props.cart} color="secondary" style={{marginBottom:'30px'}}/>
                             <span><a href="/cart" style={{marginRight: '40px' ,color:'black'}}><i className="fa fa-shopping-cart"></i>  Cart &nbsp;</a></span>
+                            
                             <span><a href="/wishlist" style={{marginRight: '40px', color:'black'}}><i className="fa fa-heart"></i> Wishlist &nbsp;</a></span>
                             <span><a href="/history" style={{marginRight: '0px', color:'black'}}><i className="fa fa-history"></i>  History Trx &nbsp;</a></span>
                             <span><a href="/confirmorder" style={{marginLeft: '40px', color:'black'}}><i className="fa fa-shopping-basket"></i>  Confirm Payment &nbsp;</a></span>
@@ -121,7 +125,8 @@ class HeaderReact extends Component {
 const mapStateToProps = (state) => {
     return {
         username: state.auth.username,
-        role: state.auth.role
+        role: state.auth.role,
+        cart : state.cart.cartpoint
     }
 }
 

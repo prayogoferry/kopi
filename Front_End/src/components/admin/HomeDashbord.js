@@ -54,21 +54,7 @@ class HomeDashbord extends Component {
             })
     }
 
-    // totalSales = () => {
-    //     axios.get('http://localhost:2002/dashbord/getorder')
-    //         .then((res) => {
-    //             console.log(res);
-    //             var price = 0;
-    //             res.data.forEach(element => {
-    //                 price += element.sales;
-    //             });
-    //             this.setState({ 
-    //                 sales: res.data
-    //             });
-    //         }).catch((err) => {
-    //             console.log(err);
-    //         })
-    // }
+   
 
     totalOrderNeedConfirm = () => {
         axios.get('http://localhost:2002/dashbord/getconfirm')
@@ -104,7 +90,7 @@ class HomeDashbord extends Component {
         return(
         <div>
         <div className="row w-100">
-            <div className="col-md-4">
+            <div className="col-md-3">
             <div className="card border-info bg-info mx-sm-1 p-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
                 <a href="/admin/manageusers">
                 <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">Manage Users</h3></div></a>
@@ -112,7 +98,7 @@ class HomeDashbord extends Component {
                 <div className="text-info text-center mt-2"><h4><button className="btn btn-light" style={{height: '50px', width: '50px', borderRadius: '50px', fontSize: '20px',}}>{this.state.users.length}</button></h4></div>
             </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-3">
             <div className="card border-info bg-info mx-sm-1 p-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
                 <a href="/admin/productslist">
                 <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">Manage Products</h3></div></a>
@@ -120,7 +106,7 @@ class HomeDashbord extends Component {
                 <div className="text-info text-center mt-2"><h4><button className="btn btn-light" style={{height: '50px', width: '50px', borderRadius: '50px', fontSize: '20px'}}>{this.state.products.length}</button></h4></div>
             </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-3">
             <div className="card border-info bg-info mx-sm-1 pt-3 pl-3 pr-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
                 <a href="/admin/managetrx">
                 <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">Manage Transaction</h3></div></a>
@@ -128,9 +114,18 @@ class HomeDashbord extends Component {
                 <div className="text-info text-center mt-2"><h4><button className="btn btn-light" style={{height: '50px', width: '50px', borderRadius: '50px', fontSize: '20px'}}>{this.state.order.length}</button></h4></div>
             </div>
             </div>
+
+            <div className="col-md-3">
+            <div className="card border-info bg-info mx-sm-1 pt-3 pl-3 pr-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
+                <a href="/admin/managetrx">
+                <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">Manage Category</h3></div></a>
+                <div className="text-info text-center mt-2 pt-4"><h1 className="text-light">Total Order</h1></div>
+                <div className="text-info text-center mt-2"><h4><button className="btn btn-light" style={{height: '50px', width: '50px', borderRadius: '50px', fontSize: '20px'}}>{this.state.order.length}</button></h4></div>
+            </div>
+            </div>
         </div>
                 <div className="row w-100">
-                <div className="col-md-4 pt-5">
+                <div className="col-md-3 pt-5">
                 <div className="card border-info bg-info mx-sm-1 p-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
                     <a href="/admin/confirmtransaction">
                     <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">Confirm Orders</h3></div></a>
@@ -138,7 +133,7 @@ class HomeDashbord extends Component {
                     <div className="text-info text-center mt-2"><h4><button className="btn btn-light" style={{height: '50px', width: '50px', borderRadius: '50px', fontSize: '20px'}}>{this.state.confirm.length}</button></h4></div>
                 </div>
                 </div>
-                <div className="col-md-4 pt-5">
+                <div className="col-md-3 pt-5">
                 <div className="card border-info bg-info mx-sm-1 p-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
                     <a href="/admin/managewishlist">
                     <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">See Wishlist</h3></div></a>
@@ -146,7 +141,7 @@ class HomeDashbord extends Component {
                     <div className="text-info text-center mt-2"><h4><button className="btn btn-light" style={{height: '50px', width: '50px', borderRadius: '50px', fontSize: '20px'}}>{this.state.wishlist.length}</button></h4></div>
                 </div>
                 </div>
-                <div className="col-md-4 pt-5">
+                <div className="col-md-3 pt-5">
                 <div className="card border-info bg-info mx-sm-1 p-3 shadow" style={{height: '200px', borderRadius: '10px'}}>
                     <a href="/admin/managewishlist">
                     <div className="card border-info shadow text-info p-3 my-card bg-light" style={{borderRadius: '7px'}}><h3 className="text-center text-uppercase">See Orders Success</h3></div></a>

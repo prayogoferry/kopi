@@ -175,7 +175,7 @@ class ProductsListView extends Component {
     }
 
     adminAddAction = () => {
-        if(this.props.myRole === 'SUPERADMIN' || this.props.myRole === 'EDITOR') {
+        if(this.props.myRole === 'SUPERADMIN') {
             return(
                 <tfoot>
                     <tr>

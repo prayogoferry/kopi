@@ -27,7 +27,7 @@ app.get('/testencrypt', (req,res) => {
 })
 
 const { productRouter } = require('./routers');
-const { cartRouter, categoryRouter, adminRouter } = require('./routers');
+const { cartRouter, dashboardRouter, adminRouter } = require('./routers');
 const { usersRouter } = require('./routers')
 
 app.use('/product', productRouter);
@@ -50,7 +50,8 @@ app.use('/orders', cartRouter);
 app.use('/orderdetail', cartRouter);
 app.use('/confirm', cartRouter);
 app.use('/confirmtrx', cartRouter);
-app.use('/category', categoryRouter);
+// app.use('/category', categoryRouter);
+app.use('/categories', productRouter);
 app.use('/admin', adminRouter);
 app.use('/users', adminRouter);
 app.use('/trx', adminRouter);
@@ -59,7 +60,7 @@ app.use('/join', productRouter);
 // manage products sebelum di join 
 app.use('/productlist', productRouter);
 // dashbord
-app.use('/dashbord', categoryRouter);
+app.use('/dashbord', dashboardRouter);
 
 app.listen(port, () => console.log('API jalan  di port ' + port));
 

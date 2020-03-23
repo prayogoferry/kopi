@@ -9,3 +9,4 @@ export const COOKIE_CHECKED = 'Cookie checked';
 export const SELECTED_PRODUCTS = 'Selected products';
 export const CONVERT_TO_IDR = 'Convert to IDR';
 export const CONVERT_DATE = 'Convert date';
+export const CART_POINT = 'Cart Point'

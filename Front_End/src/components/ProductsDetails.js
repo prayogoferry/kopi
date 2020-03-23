@@ -30,12 +30,13 @@ class ProductsDetails extends Component {
             }).catch((err) => {
                 console.log(err)
             })
+
     }
 
 // function untuk menambahkan produk ke cart, jika user memasukan product yang sma yang sudah ada dalam cart, maka otomatis barang tersebut akan ditimpa
     onBtnAddToCart = (harga, id) => {
         if(this.props.username === "") {
-            alert("Please Login First!");
+            alert(" Login  dulu lah");
             window.location = "/login"
         } else {
             
@@ -82,58 +83,23 @@ class ProductsDetails extends Component {
     }
 
 
-    ///////fungsi whistlist////////////////
+
+
+    renderStok=()=>{
+        var stok=[]
+         
+        for(let i = 0; i <= this.state.productdetail.stok; i++){
+        stok.push(<option size='20'>{i}</option>)
+        }
+        return stok
+        // return this.state.productdetail.stok.map((index)=>{
+        // return <option style ={{fontSize:'15'}}>{index}</option>
+        // })
+    }
+
 
     
-    // btnAddWishlist = (id) => {
-    //     var currentdate = new Date();
-    //     var date = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate();
-        
-    //     // + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-    //     if(this.props.username === "") {
-    //         alert("Please Login First!");
-    //         window.location = "/login"
-    //     } else {
-    //         axios.get('http://localhost:2002/wishlist/getprotectwishlist', {
-    //             params: {
-    //                 username: this.props.username,
-    //                 product_id: id,
-    //             }
-    //         }).then((res) => {
-    //             if (res.data.length > 0) {
-    //                 axios.put("http://localhost:2002/editcart/protectwishlist/" + res.data[0].id, {
-    //                     user_id: this.props.id,
-    //                     product_id: id,
-    //                     date 
-    //                 }).then((res) => {
-    //                     console.log(res.data)
-    //                 }).catch((err) => {
-    //                     console.log(err);
-    //                 })
-    //                 alert('Succes add to wishlist!')
-    //                     window.location = "/wishlist";
-    //             } else {
-    //                 axios.post("http://localhost:2002/wishlist/addwishlist", {
-    //                     user_id: this.props.id,
-    //                     product_id: id,
-    //                     date
-    //                 }).then((res) => {
-    //                     console.log(res);
-    //                     alert(`Success add to wishlist!`);
-    //                     window.location = "/wishlist";
-    //                 }).catch((err) => {
-    //                     console.log(err);
-    //                     alert(`Failed add to wishlist`);
-    //                 })
-    //             }
-    //         }).catch((err) => {
-    //             console.log(err);
-    //             })
-    //         }
-    // }
-
-
-// render tampilkan produk details
+// tampilkan produk details
     render() {
         var { id, nama, harga, image, deskripsi } = this.state.productdetail;
             return (
@@ -150,12 +116,8 @@ class ProductsDetails extends Component {
                     <br></br>
                     <InputGroup size="lg">
                         <InputGroupAddon addonType="prepend">Quantity</InputGroupAddon>
-                            <select defaultValue="1" ref="quantity" innerRef="addquantity" type="number">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select ref="quantity" innerRef="addquantity" type="number">
+                                {this.renderStok()}
                             </select>
                     </InputGroup>
                     <br/>
