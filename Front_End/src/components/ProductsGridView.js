@@ -86,9 +86,10 @@ class ProductsGridView extends Component {
                                     className="btn btn-info">Manage Products</button>
                                     </div>
                                     ;
-            } else {
-                changeToListView = '';
-            }           
+            } 
+            // else {
+            //     changeToListView = '';
+            // }           
             
             return (
                 <div>
@@ -108,11 +109,11 @@ class ProductsGridView extends Component {
                     </div>
                         
                     <div className="input-group mb-1 col-md-2 mx-auto" style={{marginTop:'10px'}}>
-                        <input type="text" ref="produk" className="form-control" style={{height:'20px',fontSize:'25'}} 
-                        placeholder="JELAJAHI" aria-label="products" aria-describedby="basic-addon1" style={{fontSize: '15px'}} onKeyUp={this.onBtnSearchClick}/>
-                        <div class="input-group-prepend">
+                        <input type="text" ref="produk" className="form-control" style={{height:'30px',fontSize:'25'}} 
+                        placeholder="JELAjAHi" aria-label="products" aria-describedby="basic-addon1" style={{fontSize: '15px'}} onKeyUp={this.onBtnSearchClick}/>
+                        {/* <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1" style={{fontSize: '20px'}}><i class="fa fa-search"></i></span>
-                        </div>
+                        </div> */}
                     </div>
                             {/* <div className="row justify-content-center" style={{ marginTop: "30px" }}>
                                     {changeToListView}
@@ -127,7 +128,7 @@ class ProductsGridView extends Component {
                                         activePage={this.state.activePage}
                                         itemsCountPerPage={this.state.itemPerPage}
                                         totalItemsCount={this.state.searchListProducts.length}
-                                        pageRangeDisplayed={5}
+                                        pageRangeDisplayed={10}
                                         onChange={this.handlePageChange.bind(this)}
                                     />
                                 </div>

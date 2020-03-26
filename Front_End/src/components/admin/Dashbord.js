@@ -23,7 +23,7 @@ class Dashbord extends Component {
                                 <a href="/admin/managecategory" className="list-group-item">Manage Category</a>
                             </div>
                         </div> */}
-                        <div className="col-lg-10 card bg-light border" style={{height: '600px', width:'1000px'}}>
+                        <div className="col-lg-10 card bg-light border" style={{height: '600px', width:'1000px', marginLeft:"100px"}}>
                             <h1 className="text-center pt-5 text-uppercase pb-5">Dashbord</h1>
                         <div>
                         <HomeDashbord/>

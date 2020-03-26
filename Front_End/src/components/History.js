@@ -106,10 +106,10 @@ class History extends Component {
             if(this.props.status === 'Verified'){
                 if(this.state.listOrders.length > 0){
                     return (
-                        <div style={{height: "700px"}}>
+                        <div style={{height: "500px", width:'100%'}}>
                         <div className="full-width-div card bg-0" >
                                 <h2 className="text-center section-heading font-weight-bold text-uppercase pb-5" style={{marginTop: '50px'}}>Your Transaction History</h2>
-                                <table align="center" className="col-md-6 table table-striped table-hover border shadow">
+                                <table align="center" className="col-md-6 table table-striped table-hover border shadow" style={{width:'100%'}}>
                                     <thead className="thead-light">
                                         <tr>
                                             {/* <th scope="col" className="font-weight-bold text-uppercase" ><center>ID Transaksi</center></th> */}

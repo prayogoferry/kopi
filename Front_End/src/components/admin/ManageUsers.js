@@ -29,7 +29,7 @@ class ManageUsers extends Component {
         return (
           <div className="" style={{ padding: "20px", fontSize: "13px", height: '700px' }}>
               <div className="row">
-                <div className="col-lg-2" style={{ marginBottom: "20px" }}>
+                {/* <div className="col-lg-2" style={{ marginBottom: "20px" }}>
                 <div className="list-group">
                     <a href="/admin/dashbord" className="list-group-item">Dashbord</a>
                     <a href="/admin/confirmtransaction" className="list-group-item">Transaction Confirmation</a>
@@ -38,7 +38,7 @@ class ManageUsers extends Component {
                     <a href="/admin/managetrx" className="list-group-item">Manage Transacion</a>
                     <a href="/admin/managewishlist" className="list-group-item">See Wishlist</a>
                 </div>
-                </div>
+                </div> */}
                 <div className="col-lg-10 card bg-light border">
                   <h1 className="text-center pt-5 text-uppercase pb-5">Manage Users</h1>
                 <div>

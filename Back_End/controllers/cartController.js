@@ -134,7 +134,7 @@ module.exports = {
                 to: email,
                 subject: 'Email For Payment Confirmation',
                 html: ` kode invoice kamu. <br/> <h1 color="blue">${paymentinvoice}</h1>
-                <br/> Gunakan kode ini invoice tersebut untuk konfirmasi pembayaran!`
+                <br/> Gunakan kode invoice ini sebagai konfirmasi pembayaran!`
             }
 
             transporter.sendMail(mailOptions, (err2, res2) => {

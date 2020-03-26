@@ -259,6 +259,7 @@ class ProductsList extends Component {
             )
         }
 
+        
         if(this.props.myRole === "SUPERADMIN") {
             return (
                 <tr>

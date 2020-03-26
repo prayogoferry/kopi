@@ -14,7 +14,7 @@ import Cart from './components/Cart';
 import CheckOut from './components/CheckOut';
 import _History from './components/History';
 import ManageUsers from './components/admin/ManageUsers';
-import ManageProducts from './components/admin/ManageProducts';
+// import ManageProducts from './components/admin/ManageProducts';
 import ManageTrx from './components/admin/ManageTrx';
 import categorymanage from './components/admin/categorymanage';
 import Spinner from './components/Spinner';
@@ -66,7 +66,7 @@ class App extends Component {
         <Route path="/checkout" component={CheckOut} />
         <Route path="/confirmorder" component={ConfirmOrder}/>
         <Route path="/admin/manageusers" component={ManageUsers}/>
-        <Route path="/admin/manageproducts" component={ManageProducts}/>
+        {/* <Route path="/admin/manageproducts" component={ManageProducts}/> */}
         <Route path="/admin/managetrx" component={ManageTrx}/>
         <Route path="/admin/managecategory" component={categorymanage}/>
         <Route path="/admin/addproduct" component={AddProduct} />

@@ -40,7 +40,7 @@ class ProductsItems extends Component {
                         </center>
                         <br/>
                         <div className="card-body card-body-cascade text-center">
-                        <h4 className="card-title text-info"><strong><a href>{nama}</a></strong></h4>
+                        <h4 className="card-title text-dark"><strong><a href>{nama}</a></strong></h4>
                         <div className="pb-0" >
                         <span className="text-bold" style={{fontSize: '14px'}}>{rupiah.format(harga)}</span>
                         <br/>

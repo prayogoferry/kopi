@@ -145,10 +145,10 @@ render() {
                             <tr>
                                 <td colSpan="4">
                                     <div className="text-center">
-                                        <h1>TOTAL PRICE : {myCurrency.format(this.state.totalPrice)}</h1>
-                                        <Button color="primary" size="lg" block style={{ fontSize: "14px" }}
+                                        <h1 style={{paddingBottom:'0px', paddingTop:'30px'}}>TOTAL PRICE : {myCurrency.format(this.state.totalPrice)}</h1>
+                                        <Button color="dark" size="lg" block style={{ fontSize: "14px" }}
                                             onClick={() => this.onBtnPayment()}>
-                                            &nbsp; Pay
+                                            &nbsp; Bayar
                                                 </Button>
                                     </div>
                                 </td>

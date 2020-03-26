@@ -11,8 +11,8 @@ class ConfirmOrder extends Component {
         confirm: [],
         addConfirmImage: 'Select Image',
         getConfirm: [],
-        activePage: 1,
-        itemPerPage: 3
+        // activePage: 1,
+        // itemPerPage: 3
     }
 
     handlePageChange(pageNumb) {
@@ -91,11 +91,11 @@ class ConfirmOrder extends Component {
         if (this.props.username !== '') {
             if(this.props.status === 'Verified'){
                 return (
-                        <div  style={{height: '700px'}}>
+                        <div  style={{height: '500px'}}>
                             <div className="full-width-div card bg-light pb-5">
                                 {/* <div className="table-responsive card shadow p-3 mb-5 bg-white rounded"> */}
-                                <h2 className="section-heading text-uppercase text-center pt-5">Thank You</h2>
-                                <h3 className="section-subheading text-muted text-center pb-5">Please Confirm Your Payment Below.</h3>
+                                <h2 className="section-heading text-uppercase text-center pt-5">Terima Kasih</h2>
+                                <h3 className="section-subheading text-muted text-center pb-5">Untuk Konfirmasi, Silahkan Masukan Kode Invoice dan Bukti Pembayaran</h3>
                                     <table align="center" className="col-md-5 table table-striped table-hover border shadow">
                                         <thead className="thead-light border">
                                             <tr>

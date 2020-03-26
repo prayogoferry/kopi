@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {Cartpoint} from '../actions'
 import Pagination from 'react-js-pagination';
+import { CustomInput, Modal, ModalBody, ModalFooter, ModalHeader, Button, Table } from 'reactstrap';
 
 const myCurrency = new Intl.NumberFormat('in-Rp', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
 class cart extends Component {
@@ -12,7 +13,10 @@ class cart extends Component {
         listCart: [],
         selectedIdEdit: 0,
         activePage: 1,
-        itemPerPage: 3
+        itemPerPage: 3,
+        alamatuser: '',
+        isModalAlamatOpen: false,
+        isModalAlamatEdit: false
     }
 
     handlePageChange(pageNumb) {
@@ -165,7 +169,7 @@ class cart extends Component {
             if(this.props.status === 'Verified'){
                 if (this.state.listCart.length > 0) {
                 return (
-                    <div style={{height: "700px"}}>
+                    <div style={{height: "500px"}}>
                         <div className="full-width-div table-responsive card shadow col-md-12">
                             <h2 className="section-heading text-center text-uppercase" style={{ marginTop: '50px' }}>Hello, {this.props.username}</h2>
                             <h3 className="section-subheading text-muted text-center pb-5">Happy Shopping</h3>
@@ -194,7 +198,7 @@ class cart extends Component {
                                         </thead>
                                         <tr>
                                             <td colSpan="8">
-                                                <div className="text-center" style={{ fontSize: '14px', }}>{myCurrency.format(this.totalPrice())}</div>
+                                                <div className="text-center font-weight-bold" style={{ fontSize: '14px' }}>{myCurrency.format(this.totalPrice())}</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -205,6 +209,50 @@ class cart extends Component {
                                     </table>
                                 </div>
                             </div>
+
+                            <table className="col-md-7 table table-striped table-hover border shadow" style={{ marginLeft: "150px" }} >
+                                    <thead className="thead-light">
+                                        <tr>
+                                            <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '16px', }}><center>Alamat</center></th>
+                                            <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '16px', }}><center>Phone</center></th>
+                                            <th scope="col" className="font-weight-bold text-uppercase" style={{ fontSize: '16px', }}><center>Action</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            alamat === '0' ?
+                                                <div>
+
+                                                    <button className='btn btn-primary' onClick={this.toogleadd}>Add data</button>
+                                                    <Modal isOpen={this.state.isModalAlamatOpen} toggle={this.toogleadd}>
+                                                        <ModalHeader toggle={this.toogleadd}>Add data</ModalHeader>
+                                                        <ModalBody>
+                                                            <textarea className="form-control"type="text" ref='addalamat' placeholder='Masukkan Alamat' className='form-control mt-2 ' style={{height:"200px"}} />
+                                                            <input type="text" ref='addphone' placeholder='No Telepon' className='form-control mt-2' />
+
+                                                        </ModalBody>
+                                                        <ModalFooter>
+                                                            <Button color="primary" onClick={this.onBtnAddClick}>Save</Button>
+                                                            <Button color="secondary" onClick={this.toogleadd}>Cancel</Button>
+                                                        </ModalFooter>
+                                                    </Modal>
+
+
+                                                </div>
+
+
+
+                                                :
+                                                this.renderalamat()
+
+                                            // <button className='btn btn-danger' onClick={() => this.onBtnDeleteClick}>2</button>
+
+                                        }
+                                    </tbody>
+                                </table>
+
+
+
                             <div className="mx-auto">
                                 <Pagination
                                     activePage={this.state.activePage}
@@ -247,7 +295,9 @@ const mapStateToProps = (state) => {
         username: state.auth.username, 
         myRole: state.auth.role,
         status: state.auth.status,
-        cart : state.cart.cartpoint
+        cart : state.cart.cartpoint,
+        alamat: state.auth.alamat,
+        phone: state.auth.phone
     }
 }
 

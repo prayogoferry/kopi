@@ -14,6 +14,7 @@ import { onUserLogout } from '../actions';
 import Cookies from 'universal-cookie';
 import { MDBBtn } from "mdbreact";
 import {Badge} from '@material-ui/core'
+// import {logo1} from '../photo/logo1'
 
 const cookies = new Cookies();
 
@@ -25,17 +26,17 @@ class HeaderReact extends Component {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            isOpen: false
-        };
+        // this.toggle = this.toggle.bind(this);
+        // this.state = {
+        //     isOpen: false
+        // };
     }
 
-    toggle() {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
-    }
+    // toggle() {
+    //     this.setState({
+    //         isOpen: !this.state.isOpen
+    //     });
+    // }
 
     onLogoutSelect = () => {
         if(window.confirm('Are you sure want to Logout?')) {
@@ -75,26 +76,28 @@ class HeaderReact extends Component {
                 <div style={{ margin: '0 0 90px 0' }}>
                     <Navbar color="dark" light expand="md" fixed="top" className="shadow">
                     <NavbarBrand href="/" style={{ fontSize: "16px" }}>
-                        <h2 style={{lineHeight: '40px', color:'white'}}>Hai, {this.props.username}</h2>
+                    <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQmNieWhh-5gF_nxx4JutOVYWYpITFJuTMtYAgVnmZDLW2h9KGU" height="50px" width='30%' alt="First slide"/>
+                        <h2 style={{lineHeight: '40px', color:'white'}}>Sugeng Rawuh, {this.props.username}</h2>
                     </NavbarBrand>
+                    
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar style={{ fontSize: "20px", fontWeight: "bold" }}>
                             <NavItem style={{fontSize: '16px', lineHeight: '20px'}}>
-                                <button type="button" className="btn btn-outline-light" onClick={this.onLogoutSelect}>Log out</button>
+                                <button type="button" className="btn btn-outline-light" onClick={this.onLogoutSelect}>LogOut</button>
                             </NavItem>
                         </Nav>
                     </Collapse>
                     </Navbar>
-                    <div style={{height: '40px', marginRight: '-15px', marginLeft: '-15px', marginTop: '60px', backgroundColor: 'silver', fontSize: '16px', lineHeight: '2em' }} className="text-center fixed-top font-weight-normal">
+                    <div style={{height: '40px', marginRight: '-15px', marginLeft: '-15px', marginTop: '60px', backgroundColor: '#212529', fontSize: '16px', lineHeight: '2em' }} className="text-center fixed-top font-weight-normal">
                         <div style={{marginTop: '3px'}}>
                             
                             <Badge badgeContent={this.props.cart} color="secondary" style={{marginBottom:'30px'}}/>
-                            <span><a href="/cart" style={{marginRight: '40px' ,color:'black'}}><i className="fa fa-shopping-cart"></i>  Cart &nbsp;</a></span>
-                            
-                            <span><a href="/wishlist" style={{marginRight: '40px', color:'black'}}><i className="fa fa-heart"></i> Wishlist &nbsp;</a></span>
-                            <span><a href="/history" style={{marginRight: '0px', color:'black'}}><i className="fa fa-history"></i>  History Trx &nbsp;</a></span>
-                            <span><a href="/confirmorder" style={{marginLeft: '40px', color:'black'}}><i className="fa fa-shopping-basket"></i>  Confirm Payment &nbsp;</a></span>
+                            <span><a href="/cart" style={{marginRight: '40px' ,color:'white'}}><i className="fa fa-shopping-cart"></i>  Cart &nbsp;</a></span>
+            
+                            <span><a href="/wishlist" style={{marginRight: '40px', color:'white'}}><i className="fa fa-heart"></i> Wishlist &nbsp;</a></span>
+                            <span><a href="/history" style={{marginRight: '0px', color:'white'}}><i className="fa fa-history"></i>  History Trx &nbsp;</a></span>
+                            <span><a href="/confirmorder" style={{marginLeft: '40px', color:'white'}}><i className="fa fa-shopping-basket"></i>  Confirm Payment &nbsp;</a></span>
                         </div>
                     </div>
                 </div>
@@ -102,9 +105,9 @@ class HeaderReact extends Component {
         } else {
             return (
                 <div style={{ margin: '0 0 90px 0' }}>
-                <Navbar color="light" light expand="md" fixed="top" className="shadow">
-                <NavbarBrand href="/admin/productsgridview" style={{ fontSize: "16px" }}>
-                    <h2 style={{lineHeight: '40px'}}>You Are, {this.props.username}</h2>
+                {/* <Navbar color="black" style={{ fontSize: "16px" }}>
+                    <h2 style={{lineHeight: '40px'}}>Sugeng Rawuh, {this.props.username}</h2>
+                    <Navbar/>
                 </NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
@@ -114,7 +117,32 @@ class HeaderReact extends Component {
                         </NavItem>
                     </Nav>
                 </Collapse>
-                </Navbar>
+                </Navbar> */}
+
+                    <Navbar color="dark" light expand="md" fixed="top" className="shadow">
+                    <NavbarBrand href="/" style={{ fontSize: "16px" }}>
+                    {/* <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQmNieWhh-5gF_nxx4JutOVYWYpITFJuTMtYAgVnmZDLW2h9KGU" height="50px" width='10%' alt="First slide"/> */}
+                        <h2 style={{lineHeight: '40px', color:'white'}}>Sugeng Rawuh, {this.props.username}</h2>
+                    </NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="ml-auto" navbar style={{ fontSize: "20px", fontWeight: "bold" }}>
+                            <NavItem style={{fontSize: '16px', lineHeight: '20px'}}>
+                                <button type="button" className="btn btn-outline-light" onClick={this.onLogoutSelect}>LogOut</button>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+                    </Navbar>
+
+                <div style={{height: '40px', marginRight: '-15px', marginLeft: '-15px', marginTop: '60px', backgroundColor: 'silver', fontSize: '16px', lineHeight: '2em' }} className="text-center fixed-top font-weight-normal">
+                        <div style={{marginTop: '3px'}}>
+                            <span><a href="/cart" style={{marginRight: '40px' ,color:'black'}}><i className=" "></i>  Manage Produk &nbsp;</a></span>
+                            <span><a href="/wishlist" style={{marginRight: '40px', color:'black'}}><i className=" "></i> Manage Category &nbsp;</a></span>
+                            <span><a href="/history" style={{marginRight: '0px', color:'black'}}><i className=" "></i>  Manage User &nbsp;</a></span>
+                            <span><a href="/confirmorder" style={{marginLeft: '40px', color:'black'}}><i className=" "></i> Payment &nbsp;</a></span>
+                        </div>
+                    </div>
+
             </div>
             )
         }

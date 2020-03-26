@@ -22,9 +22,8 @@ class ProductsDetails extends Component {
         var id = params.id;
         console.log('Params id = ' + id)
         axios.get('http://localhost:2002/productdetail/productdetail', {
-            params: {
-                id
-            }
+            params: {id}
+
         }).then((res) => {
                 this.setState({ productdetail: res.data[0] })
             }).catch((err) => {
@@ -36,7 +35,7 @@ class ProductsDetails extends Component {
 // function untuk menambahkan produk ke cart, jika user memasukan product yang sma yang sudah ada dalam cart, maka otomatis barang tersebut akan ditimpa
     onBtnAddToCart = (harga, id) => {
         if(this.props.username === "") {
-            alert(" Login  dulu lah");
+            alert(" Login  please !!!");
             window.location = "/login"
         } else {
             
@@ -108,7 +107,7 @@ class ProductsDetails extends Component {
             <h1 className="section-subheading text-center font-weight-bold" style={{ color: "black" }}>{nama}</h1>
             <div className="row" style={{paddingTop: '30px'}}>
                 <div className="col-8 col-sm-6 bg-" style={{height: '300px'}}>
-                    <img src={`http://localhost:2002${image}`} alt={image} height="250px" className="float-right"/>
+                    <img src={`http://localhost:2002${image}`} alt={image} height="250px" className="float-right shadow"/>
                 </div>
                 <div className="col-4 col-sm-6" style={{height: 'auto'}}>
                 <div style={{width: "380px"}}>
