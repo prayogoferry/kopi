@@ -14,7 +14,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-less": "^3.3.8",
     "chart.js": "^2.9.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery.easing": "^1.4.1",
     "mdbootstrap": "^4.6.1",
     "mdbreact": "^4.8.7",
